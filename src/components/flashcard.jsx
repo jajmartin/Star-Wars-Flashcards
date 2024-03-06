@@ -24,13 +24,16 @@ const Flashcard = (props) => {
     }
 
     return (
-        <div className="flashcard" onClick={flipCard}>
-            {flipped
-                ? displayAnswer()
-                : displayQuestion()
-            }
+        <div className={`flashcard ${flipped ? 'flipped' : ''}`} onClick={flipCard}>
+          <div className="card-content front">
+            <h3>{props.question}</h3>
+          </div>
+          <div className="card-content back">
+            <h3>{props.answer}</h3>
+            <img className="card-image" src={props.img} alt="Answer Image" />
+          </div>
         </div>
-    )
+      );
 }
 
 export default Flashcard
