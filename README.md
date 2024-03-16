@@ -1,26 +1,26 @@
-# Web Development Project 2 - _Star Wars Flashcards_
+# Web Development Project 3 - _Star Wars Flashcards_
 
 Submitted by: **Julian Martin**
 
-This web app: **insert description**
+This web app: **Tests your Star Wars knowledge using flashcards**
 
-Time spent: **8** hours spent in total
+Time spent: **9** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [x] **The title of the card set and some information about it, such as a short description and the total number of cards are displayed**
-- [x] **A single card at a time is displayed, only showing one of the components of the information pair**
-- [x] **A list of card pairs is created**
-- [x] **Clicking on the card shows the corresponding component of the information pair**
-- [x] **Clicking the next button displays a random new card**
+- [x] **The user can enter their guess in a box before seeing the flipside of the card**
+- [x] **Clicking on a submit button shows visual feedback about whether the answer was correct or incorrect**
+- [x] **A back button is displayed on the card and can be used to return to the previous card in a set sequence**
+- [x] **A next button is displayed on the card and can be used to navigate to the next card in a set sequence**
 
 The following **optional** features are implemented:
 
-- [x] Cards contains images in addition to or in place of text
-- [x] Cards have different visual styles such as color based on their category
-  - [x] _visual style implemented_
+- [ ] A shuffle button is used to randomize the order of the cards
+- [x] A user's answer may be counted as correct even when it is slightly different from the target answer
+- [x] A counter displays the user's current and longest streak of correct responses
+- [ ] A user can mark a card that they have mastered and have it removed from the pool of answers as well as added to a list of mastered cards
 
 The following **additional** features are implemented:
 
@@ -28,21 +28,28 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented required features:
+Here's a walkthrough of implemented user stories:
 
 <div>
-    <a href="https://www.loom.com/share/35e5f102eadd454ba826f62d02084d8a">
+    <a href="https://www.loom.com/share/f8612222216645b38ed83fa1b2d5f7a1">
     </a>
-    <a href="https://www.loom.com/share/35e5f102eadd454ba826f62d02084d8a">
-      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/35e5f102eadd454ba826f62d02084d8a-with-play.gif">
+    <a href="https://www.loom.com/share/f8612222216645b38ed83fa1b2d5f7a1">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/f8612222216645b38ed83fa1b2d5f7a1-with-play.gif">
     </a>
   </div>
 
+<!-- Replace this with whatever GIF tool you used! -->
+
 GIF created with Loom
+
+<!-- Recommended tools:
+[Kap](https://getkap.co/) for macOS
+[ScreenToGif](https://www.screentogif.com/) for Windows
+[peek](https://github.com/phw/peek) for Linux. -->
 
 ## Notes
 
-My biggest challenge was implementing the flip animation of the flashcard which is what took the most time of my hours spent on this project. Additionally, getting the text and images to fit inside of the flahscard took a bit of time to perfect.
+The most challenging part of this app was getting the user input to register correctly and passing down the value across different files.
 
 ## License
 
