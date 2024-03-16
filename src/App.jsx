@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import Flashcard from './components/flashcard'
+import FlashCardForm from './components/flashcardForm'
 import R2D2 from './images/r2d2.png'
 import Anakin from './images/anakin.png'
 import BadAni from './images/bad-anikin.png'
@@ -15,6 +16,9 @@ import C3PO from './images/c3po.png'
 
 function App() {
   const [index, setIndex] = useState(0);
+  const [isFlipped, setIsFlipped] = useState(false);
+  const [guess, setGuess] = useState('');
+  const [inputColor, setInputColor] = useState('');
 
   const flashcards = [
     {
@@ -74,15 +78,38 @@ function App() {
     }
   ]
 
-  const getFlashcard = () => {
-    let currentIndex = index;
-    while (currentIndex == index) {
-      currentIndex = Math.floor(Math.random() * 11);
+  const getNextFlashcard = () => {
+    if (index === flashcards.length - 1) {
+      setIndex(0);
     }
-    setIndex(currentIndex);
+    else {
+      setIndex(index + 1);
+    }
+    setIsFlipped(false);
+    setGuess('');
+    setInputColor('');
   };
 
+  const getPrevFlashcard = () => {
+    if (index === 0) {
+      setIndex(flashcards.length - 1);
+    }
+    else {
+      setIndex(index - 1);
+    }
+    setIsFlipped(false);
+    setGuess('');
+    setInputColor('');
+  }
 
+  const handleSubmitGuess = (userGuess) => {
+    const correctAnswer = flashcards[index].answer;
+    if (userGuess.trim().toLowerCase() === correctAnswer.toLowerCase()) {
+      return "correct";
+    } else {
+      return "incorrect";
+    }
+  };
 
   return (
     <>
@@ -92,13 +119,25 @@ function App() {
         <p>Number of cards: 11</p>
       </div>
       <div className="card-container"> 
-        {
-          <Flashcard question={flashcards[index].question} answer={flashcards[index].answer} img={flashcards[index].img} />
-        }
+        <Flashcard
+          question={flashcards[index].question}
+          answer={flashcards[index].answer}
+          img={flashcards[index].img}
+          isFlipped={isFlipped}
+          setIsFlipped={setIsFlipped}
+        />
+        <FlashCardForm
+          onSubmit={handleSubmitGuess}
+          isFlipped={isFlipped}
+          guess={guess} 
+          setGuess={setGuess}
+          inputColor={inputColor}
+          setInputColor={setInputColor}
+        />
       </div>
       <div className="buttons-container">
-        <button>←</button>
-        <button onClick={getFlashcard}>→</button>
+        <button onClick={getPrevFlashcard}>←</button>
+        <button onClick={getNextFlashcard}>→</button>
       </div>
     </>
   )
