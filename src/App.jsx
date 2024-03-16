@@ -19,6 +19,8 @@ function App() {
   const [isFlipped, setIsFlipped] = useState(false);
   const [guess, setGuess] = useState('');
   const [inputColor, setInputColor] = useState('');
+  const [currentStreak, setCurrentStreak] = useState(0);
+  const [bestStreak, setBestStreak] = useState(0);
 
   const flashcards = [
     {
@@ -105,8 +107,13 @@ function App() {
   const handleSubmitGuess = (userGuess) => {
     const correctAnswer = flashcards[index].answer;
     if (userGuess.trim().toLowerCase() === correctAnswer.toLowerCase()) {
+      setCurrentStreak(currentStreak + 1);
+      if (currentStreak === bestStreak) {
+        setBestStreak(currentStreak + 1);
+      }
       return "correct";
     } else {
+      setCurrentStreak(0);
       return "incorrect";
     }
   };
@@ -117,6 +124,10 @@ function App() {
         <h1>Jedi Mind Test</h1>
         <h2>How true of a Star Wars fan are you?</h2>
         <p>Number of cards: 11</p>
+      </div>
+      <div className="streak-header">
+        <p>Current Streak: {currentStreak},</p>
+        <p>Best Streak: {bestStreak}</p>
       </div>
       <div className="card-container"> 
         <Flashcard
