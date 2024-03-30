@@ -1,7 +1,6 @@
 import { useState } from 'react'
 
 const FlashcardForm = ({ onSubmit, isFlipped, guess, setGuess, inputColor, setInputColor }) => {
-
     const handleChange = (event) => {
         setGuess(event.target.value);
         setInputColor('');
